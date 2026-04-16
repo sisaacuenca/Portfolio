@@ -1,0 +1,139 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #ddd;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background: #ccc;
+}
+
+.nav-links {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ===== BANNER / CAROUSEL ===== */
+
+.banner {
+  width: 100%;
+}
+
+.carousel,
+.carousel-inner,
+.carousel-item {
+  height: 400px;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* PERFIL */
+.perfil {
+  padding: 40px;
+}
+
+.perfil-container {
+  display: flex;
+  gap: 20px;
+  background: #eee;
+  padding: 20px;
+}
+
+/* 🔥 MODIFICADO */
+.foto-perfil {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden; /* clave para el círculo */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 🔥 NUEVO */
+.foto-perfil img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.info {
+  flex: 1;
+}
+
+.sub {
+  color: gray;
+}
+
+.info-box {
+  margin-top: 10px;
+  background: #ccc;
+  padding: 10px;
+}
+/* GALERIA */
+.galeria {
+  padding: 40px;
+}
+
+/* FILA */
+.galeria .row {
+  display: flex;
+}
+
+/* COLUMNAS */
+.galeria .col-lg-4 {
+  display: flex;
+  flex-direction: column;
+}
+
+/* IMAGENES */
+.galeria img {
+  width: 100%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+/* DISTRIBUCION EQUILIBRADA */
+.galeria .col-lg-4 img {
+  flex: 1;
+}
+
+/* SERVICIOS */
+.servicios {
+  padding: 40px;
+}
+
+/* CARDS */
+.card {
+  background: #666;
+  border: none;
+}
+
+/* IMÁGENES UNIFORMES */
+.card-img-top {
+  height: 250px;
+  object-fit: cover;
+}
+
+/* TEXTO */
+.card-body {
+  text-align: center;
+}
+/* CONTACTO */
+.contacto {
+  padding: 40px;
+  background: #bbb;
+  text-align: center;
+}
