@@ -48,6 +48,10 @@ body {
   gap: 20px;
   background: #eee;
   padding: 20px;
+  
+  /* Agregamos esto para que sepa cómo alinearse */
+  align-items: center; 
+  justify-content: center;
 }
 
 /* 🔥 MODIFICADO */
@@ -60,6 +64,27 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  
+  /* Evita que el círculo se deforme al achicar la pantalla */
+  flex-shrink: 0; 
+}
+
+/* --- RESPONSIVE: MÓVIL --- */
+@media (max-width: 768px) {
+  .perfil-container {
+    flex-direction: column; /* De lado a lado -> Uno abajo del otro */
+    text-align: center;     /* Centra el texto en el celular */
+  }
+
+  .perfil-izq {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .foto-perfil {
+    margin: 0 auto 15px auto; /* Centra el círculo y le da espacio abajo */
+  }
 }
 
 /* 🔥 NUEVO */
