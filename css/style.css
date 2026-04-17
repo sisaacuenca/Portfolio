@@ -1,48 +1,85 @@
 body {
   margin: 0;
+  padding: 0;
   font-family: Arial, sans-serif;
   background: #ddd;
+  padding-top: 0 !important;
+
 }
 
 /* NAVBAR */
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 20px;
-  background: #ccc;
+    position: absolute !important; /* Obliga a ignorar el flujo de Bootstrap */
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    background-color: transparent !important; /* Mata cualquier bg-light o bg-dark */
+    background-image: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    z-index: 1050 !important; /* Por encima del z-index por defecto de Bootstrap */
+}
+.navbar-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Los agrupa al centro */
+    gap: 50px; /* Espacio exacto entre cada botón */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: none;
+}
+.nav-link:hover {
+    border-bottom-color: #ffffff; 
+    color: #ffffff;
 }
 
-.nav-links {
-  display: flex;
-  gap: 10px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.nav-link {
+    color: white !important;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding-bottom: 8px; /* Espacio entre texto y raya */
+    border-bottom: 3px solid #84a9e0a1; /* La raya azul para todos */
+    transition: 0.3s;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.5); /* Sombra suave para que se lea bien sobre fotos claras */
 }
 
 /* ===== BANNER / CAROUSEL ===== */
 
 .banner {
   width: 100%;
+  position: relative; /* <--- AGREGAR ESTO */
+  margin: 0;
+  padding: 0;
 }
-
+.carousel {
+    margin-top: 0 !important;
+    z-index: 1;
+}
+.carousel-inner {
+    height: 700px; /* Ajustá este valor según qué tan alto quieras el banner */
+    width: 100%;
+}
+/*
 .carousel,
 .carousel-inner,
 .carousel-item {
   height: 400px; /* Podés subirlo a 500px si querés que luzca más la foto */
-}
 
+*/
 .carousel-item img {
+    width: 100% !important;
+    height: 500px !important; /* Debe coincidir con el alto de .carousel-inner */
+    object-fit: cover; /* Esta es la magia: recorta la foto para que llene el espacio sin estirarse */
+    object-position: center; /* Centra la imagen para que no se corte lo importante */
+}
+.img-ajustada {
   width: 100%;
   height: 100%;
-  object-fit: cover; 
-  
-  /* 🔥 MODIFICACIÓN: Ajusta el encuadre */
-  /* El primer valor es horizontal (center), el segundo es vertical (top, center, bottom) */
-  /* 'top' hará que se vea la parte de arriba (las cabezas de los músicos) */
-  object-position: center top; 
+  object-fit: cover;
+  object-position: 50% 50%; /* ajustá este valor */
 }
-
 /* Ajuste opcional para que en móvil no quede un banner tan alto */
 @media (max-width: 768px) {
   .carousel,
@@ -52,19 +89,71 @@ body {
   }
 }
 /* PERFIL */
-.perfil {
-  padding: 40px;
-}
-
-.perfil-container {
+/* Este es el nuevo contenedor que ahora es un overlay */
+.perfil-container-overlay {
+  position: absolute;
+  bottom: 80px; /* Separación del borde inferior de la foto */
+  left: 50%;
+  transform: translateX(-50%); /* Centrado horizontal perfecto */
+  
   display: flex;
+  align-items: center;
   gap: 20px;
-  background: #eee;
+  
+  width: 90%;
+  max-width: 900px;
   padding: 20px;
   
-  /* Agregamos esto para que sepa cómo alinearse */
-  align-items: center; 
-  justify-content: center;
+  /* Efecto translúcido pro para que se vea la foto de fondo */
+  background: rgba(238, 238, 238, 0.2); 
+  backdrop-filter: blur(15px); /* Desenfoque de fondo */
+  -webkit-backdrop-filter: blur(15px);
+  
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  z-index: 10;
+}
+
+/* Ajuste de tu foto para que no se estire */
+.foto-perfil img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+/* Estilos de texto para que resalten sobre la imagen */
+.info-box h2 {
+  margin: 0;
+  color: rgb(0, 0, 0);
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+}
+
+.info-box .sub {
+  color: #000000;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.info-box p {
+  color: rgb(26, 3, 3);
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Ajuste para móviles: se pone uno debajo del otro */
+@media (max-width: 768px) {
+  .perfil-container-overlay {
+    flex-direction: column;
+    text-align: center;
+    bottom: 10px;
+  }
+  .foto-perfil img {
+    width: 80px;
+    height: 80px;
+  }
 }
 
 /* 🔥 MODIFICADO */
@@ -155,7 +244,7 @@ body {
 
 /* CARDS */
 .card {
-  background: #666;
+
   border: none;
 }
 
@@ -163,11 +252,26 @@ body {
 .card-img-top {
   height: 250px;
   object-fit: cover;
+   border-radius: 8px 8px 8px 8px;
 }
 
 /* TEXTO */
 .card-body {
   text-align: center;
+  position: relative; 
+  top: -59px;
+ 
+}
+.card-text{
+  font-weight: bold;
+  font-size: 22px;
+  background-color: #FFFFFF94;
+  color: #286a7f;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 0 8px 8px;
 }
 /* CONTACTO */
 .contacto {
