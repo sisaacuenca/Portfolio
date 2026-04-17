@@ -9,21 +9,21 @@ body {
 
 /* NAVBAR */
 .navbar {
-    position: absolute !important; /* Obliga a ignorar el flujo de Bootstrap */
+    position: absolute !important;
     top: 0 !important;
     left: 0 !important;
     width: 100% !important;
-    background-color: transparent !important; /* Mata cualquier bg-light o bg-dark */
+    background-color: transparent !important; 
     background-image: none !important;
     border: none !important;
     box-shadow: none !important;
-    z-index: 1050 !important; /* Por encima del z-index por defecto de Bootstrap */
+    z-index: 1050 !important; 
 }
 .navbar-nav {
     display: flex;
     flex-direction: row;
-    justify-content: center; /* Los agrupa al centro */
-    gap: 50px; /* Espacio exacto entre cada botón */
+    justify-content: center; 
+    gap: 50px;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -39,17 +39,17 @@ body {
     text-decoration: none;
     font-size: 1.1rem;
     font-weight: 500;
-    padding-bottom: 8px; /* Espacio entre texto y raya */
-    border-bottom: 3px solid #84a9e0a1; /* La raya azul para todos */
+    padding-bottom: 8px; 
+    border-bottom: 3px solid #84a9e0a1; 
     transition: 0.3s;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.5); /* Sombra suave para que se lea bien sobre fotos claras */
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
 }
 
 /* ===== BANNER / CAROUSEL ===== */
 
 .banner {
   width: 100%;
-  position: relative; /* <--- AGREGAR ESTO */
+  position: relative; 
   margin: 0;
   padding: 0;
 }
@@ -58,63 +58,57 @@ body {
     z-index: 1;
 }
 .carousel-inner {
-    height: 700px; /* Ajustá este valor según qué tan alto quieras el banner */
+    height: 700px; 
     width: 100%;
 }
-/*
-.carousel,
-.carousel-inner,
-.carousel-item {
-  height: 400px; /* Podés subirlo a 500px si querés que luzca más la foto */
 
-*/
 .carousel-item img {
     width: 100% !important;
-    height: 500px !important; /* Debe coincidir con el alto de .carousel-inner */
-    object-fit: cover; /* Esta es la magia: recorta la foto para que llene el espacio sin estirarse */
-    object-position: center; /* Centra la imagen para que no se corte lo importante */
+    height: 700px;
+    object-fit: cover;
+    object-position: center;
 }
 .img-ajustada {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 50%; /* ajustá este valor */
+  object-position: 50% 50%; 
 }
-/* Ajuste opcional para que en móvil no quede un banner tan alto */
+
 @media (max-width: 768px) {
   .carousel,
   .carousel-inner,
   .carousel-item {
     height: 250px;
   }
+  .carousel-item img {
+    height: 600px !important;
+    object-fit: cover;
+    object-position: center;
+}
+  .carousel-inner {
+    height: 600px !important; 
+    width: 100%;
+}
 }
 /* PERFIL */
-/* Este es el nuevo contenedor que ahora es un overlay */
+
 .perfil-container-overlay {
-  position: absolute;
-  bottom: 80px; /* Separación del borde inferior de la foto */
-  left: 50%;
-  transform: translateX(-50%); /* Centrado horizontal perfecto */
-  
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  
-  width: 90%;
-  max-width: 900px;
-  padding: 20px;
-  
-  /* Efecto translúcido pro para que se vea la foto de fondo */
-  background: rgba(238, 238, 238, 0.2); 
-  backdrop-filter: blur(15px); /* Desenfoque de fondo */
-  -webkit-backdrop-filter: blur(15px);
-  
-  border-radius: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  z-index: 10;
+    position: absolute; 
+    bottom: 50px;      
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    
+    
+    background: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 25px;
 }
 
-/* Ajuste de tu foto para que no se estire */
+
 .foto-perfil img {
   width: 150px;
   height: 150px;
@@ -123,7 +117,7 @@ body {
   border: 2px solid white;
 }
 
-/* Estilos de texto para que resalten sobre la imagen */
+
 .info-box h2 {
   margin: 0;
   color: rgb(0, 0, 0);
@@ -135,15 +129,22 @@ body {
   font-weight: bold;
   margin-bottom: 5px;
 }
+.info-box h2, 
+.info-box .sub, 
+.info-box p {
+    color: white !important; 
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+}
 
 .info-box p {
   color: rgb(26, 3, 3);
   margin: 0;
   font-size: 0.95rem;
   line-height: 1.4;
+  background: transparent;
 }
 
-/* Ajuste para móviles: se pone uno debajo del otro */
+
 @media (max-width: 768px) {
   .perfil-container-overlay {
     flex-direction: column;
@@ -156,26 +157,23 @@ body {
   }
 }
 
-/* 🔥 MODIFICADO */
+
 .foto-perfil {
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  overflow: hidden; /* clave para el círculo */
-
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  
-  /* Evita que el círculo se deforme al achicar la pantalla */
   flex-shrink: 0; 
 }
 
 /* --- RESPONSIVE: MÓVIL --- */
 @media (max-width: 768px) {
   .perfil-container {
-    flex-direction: column; /* De lado a lado -> Uno abajo del otro */
-    text-align: center;     /* Centra el texto en el celular */
+    flex-direction: column; 
+    text-align: center;    
   }
 
   .perfil-izq {
@@ -185,7 +183,7 @@ body {
   }
   
   .foto-perfil {
-    margin: 0 auto 15px auto; /* Centra el círculo y le da espacio abajo */
+    margin: 0 auto 15px auto; 
   }
 }
 
@@ -232,7 +230,7 @@ body {
   margin-bottom: 10px;
 }
 
-/* DISTRIBUCION EQUILIBRADA */
+
 .galeria .col-lg-4 img {
   flex: 1;
 }
@@ -248,7 +246,7 @@ body {
   border: none;
 }
 
-/* IMÁGENES UNIFORMES */
+
 .card-img-top {
   height: 250px;
   object-fit: cover;
