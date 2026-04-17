@@ -94,18 +94,24 @@ body {
 /* PERFIL */
 
 .perfil-container-overlay {
-    position: absolute; 
-    bottom: 50px;      
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-    
-    
-    background: rgba(255, 255, 255, 0.1); 
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 20px;
-    padding: 25px;
+  display: flex; 
+  flex-direction: row;
+  align-items: center; 
+  gap: 20px; 
+  
+  
+  position: absolute;
+  bottom: 80px; 
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 900px;
+  padding: 20px;
+  background: rgba(238, 238, 238, 0.2); 
+  backdrop-filter: blur(15px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  z-index: 10;
 }
 
 
@@ -132,8 +138,8 @@ body {
 .info-box h2, 
 .info-box .sub, 
 .info-box p {
-    color: white !important; 
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+    color: rgb(56, 56, 56) !important; 
+    text-shadow: 1px 1px 3px rgba(44, 44, 44, 0.952);
 }
 
 .info-box p {
